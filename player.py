@@ -11,7 +11,7 @@ def create_player(name):
         'current_hp': 10,
         'min_dmg': 1,
         'max_dmg': 7,
-        'crit_chance': 20,
+        'crit_chance': 10,
         'crit_mult': 2
     }
     return player
@@ -23,10 +23,9 @@ def player_attack(player):
 
     if crit_roll <= player['crit_chance']:
         player_damage *= player['crit_mult']
-        print(f"Critical hit! {player['name']} dealt {player_damage} damage!")
-
+        
     else:
-        print(f"{player['name']} dealt {player_damage} damage.")
+        player_damage = player_damage
 
     return player_damage
 
