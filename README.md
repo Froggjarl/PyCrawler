@@ -1,6 +1,8 @@
 
 ## PyCrawler
 
+![PyCrawler logo](assets/logo/PyCrawler.png)
+
   This is the repository of my first Python project: PyCrawler. It is a simple terminal-based RPG modeled around a roguelike playstyle.
 
   ### Roadmap:
