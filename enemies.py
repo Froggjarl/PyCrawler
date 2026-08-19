@@ -3,6 +3,7 @@ import random
 enemy_types = ['slime', 'goblin', 'wizard']
 
 def create_ran_enemy(type):
+
     if type == 'slime':
         enemy = {
             'name': 'Slime',
@@ -34,3 +35,18 @@ def create_ran_enemy(type):
             'crit_mult': 1.3
         }
     return enemy
+
+def enemy_attack(enemy):
+
+    enemy_damage = random.randint(enemy['min_dmg'], enemy['max_dmg'])
+    crit_roll = random.randint(1, 100)
+
+    if crit_roll <= enemy['crit_chance']:
+        enemy_damage *= enemy['crit_mult']
+        print(f"Critical hit! {enemy['name']} dealt {enemy_damage} damage!")
+
+    else:
+        print(f"{enemy['name']} dealt {enemy_damage} damage.")
+
+    return enemy_damage
+
