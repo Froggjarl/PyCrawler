@@ -43,10 +43,9 @@ def enemy_attack(enemy):
 
     if crit_roll <= enemy['crit_chance']:
         enemy_damage *= enemy['crit_mult']
-        print(f"Critical hit! {enemy['name']} dealt {enemy_damage} damage!")
-
+        
     else:
-        print(f"{enemy['name']} dealt {enemy_damage} damage.")
+        enemy_damage = enemy_damage
 
     return enemy_damage
 
