@@ -10,3 +10,4 @@
     - Add some sort of loot system with basic upgrades
     - More advanced stats like speed
     - Functionality for battles with multiple enemies
+    - A system for attack types and the introduction of resistance and weakness to different attack types
