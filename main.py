@@ -8,7 +8,16 @@ from enemies import enemy_types
 
 score = 0
 
-print('Welcome to Pycrawler!')
+print('                        ')
+print("""
+██████╗ ██╗   ██╗ ██████╗██████╗  █████╗ ██╗    ██╗██╗     ███████╗██████╗ 
+██╔══██╗╚██╗ ██╔╝██╔════╝██╔══██╗██╔══██╗██║    ██║██║     ██╔════╝██╔══██╗
+██████╔╝ ╚████╔╝ ██║     ██████╔╝███████║██║ █╗ ██║██║     █████╗  ██████╔╝
+██╔═══╝   ╚██╔╝  ██║     ██╔══██╗██╔══██║██║███╗██║██║     ██╔══╝  ██╔══██╗
+██║        ██║   ╚██████╗██║  ██║██║  ██║╚███╔███╔╝███████╗███████╗██║  ██║
+╚═╝        ╚═╝    ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚══════╝╚══════╝╚═╝  ╚═╝
+""")
+
 player = create_player(input('Choose a name for your character: '))
 
 while player['current_hp'] > 0:
@@ -20,7 +29,7 @@ while player['current_hp'] > 0:
     print(f"{player['name']} encountered a {enemy['name']}!")
 
     while player['current_hp'] > 0 and enemy_defeated == False:
-        print(f"What will {player['name']} do?\n1. Attack")
+        print(f"What will {player['name']} do?\n[1] Attack")
         player_act = input(': ')
 
         if player_act == '' or player_act == ' ':
