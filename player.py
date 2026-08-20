@@ -29,3 +29,14 @@ def player_attack(player):
 
     return player_damage
 
+def player_fireball(player):
+    player_damage = 6
+    crit_roll = random.randint(1, 100)
+
+    if crit_roll <= player['crit_chance']:
+        player_damage *= player['crit_mult']
+
+    else:
+        player_damage = player_damage
+
+    return player_damage
