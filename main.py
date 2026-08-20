@@ -2,6 +2,7 @@ import random
 
 from player import create_player
 from player import player_attack
+from player import player_fireball
 from enemies import create_ran_enemy
 from enemies import enemy_attack
 from enemies import enemy_types
@@ -28,7 +29,7 @@ while player['current_hp'] > 0:
     print(f"{player['name']} encountered a {enemy['name']}!")
 
     while player['current_hp'] > 0 and enemy_defeated == False:
-        print(f"What will {player['name']} do?\n[1] Attack")
+        print(f"What will {player['name']} do?\n[1] Attack\n[2] Fireball Spell")
         player_act = input(': ')
 
         if player_act == '' or player_act == ' ':
@@ -39,6 +40,11 @@ while player['current_hp'] > 0:
             player_damage = player_attack(player)
             enemy['current_hp'] -= player_damage
             print(f"{player['name']} dealt {player_damage} damage to {enemy['name']}! {enemy['name']} has {enemy['current_hp']} HP left.")
+
+        if player_act == '2':
+            player_damage = player_fireball(player)
+            enemy['current_hp'] -= player_damage
+            print(f"{player['name']} cast Fireball and dealt {player_damage} damage to {enemy['name']}! {enemy['name']} has {enemy['current_hp']} HP left.")
 
         if enemy['current_hp'] <= 0:
             print(f"{enemy['name']} has been defeated!")
