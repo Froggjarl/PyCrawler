@@ -7,6 +7,7 @@ This is the repository of my first Python project: PyCrawler. It is a simple ter
 
 ## Roadmap:
 - [x] Add the actual game play loop with functioning enemy spawn
+- [ ] Add working art
 - [ ] Add some sort of loot system with basic upgrades
 - [ ] More advanced stats like speed and armour
 - [ ] Functionality for battles with multiple enemies
