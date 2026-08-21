@@ -12,7 +12,12 @@ This is the repository of my first Python project: PyCrawler. It is a simple ter
 - [ ] More advanced stats like speed and armour
 - [ ] Functionality for battles with multiple enemies
 - [ ] A system for attack types and the introduction of resistance and weakness to different attack types
-- [ ] Maybe make a better logo 
+- [ ] Maybe make a better logo
+
+## Known Bugs
+** Most of these stem from my lack of knowledge and experience, so please be patient
+- Putting three or more "space" characters when selecting an an action will result in skipping the player's turn
+- The art does not display correctly on all terminals
   
 ## Credits
 The art would not have been possible without the amazing [px2ansi](https://github.com/Nellousan/px2ansi/tree/main) tool by Nellousan
