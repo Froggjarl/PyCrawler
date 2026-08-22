@@ -16,7 +16,7 @@ This is the repository of my first Python project: PyCrawler. It is a simple ter
 
 ## Known Bugs
 **Most of these stem from my lack of knowledge and experience, so please be patient**
-- Putting three or more "space" characters when selecting an an action will result in skipping the player's turn
+- ~~Putting three or more "space" characters when selecting an an action will result in skipping the player's turn~~
 - ~~The art does not display correctly on all terminals~~ **The art has been removed temporarilly as I could not resolve the issue**
   
 ## Credits
