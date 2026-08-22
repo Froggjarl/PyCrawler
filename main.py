@@ -30,7 +30,7 @@ while player['current_hp'] > 0:
 
     print(f"{player['name']} encountered a {enemy['name']}!")
 
-    print_enemy(enemy)
+    #print_enemy(enemy)
 
     while player['current_hp'] > 0 and enemy_defeated == False:
         print(f'\nMP: {mp}')
