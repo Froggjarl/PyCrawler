@@ -9,10 +9,12 @@ def create_player(name):
         'name': name,
         'max_hp': 10,
         'current_hp': 10,
-        'min_dmg': 1,
+        'min_dmg': 2,
         'max_dmg': 7,
         'crit_chance': 10,
-        'crit_mult': 2
+        'crit_mult': 2,
+        'mp': 3,
+        'max_mp': 3
     }
     return player
 
@@ -30,7 +32,7 @@ def player_attack(player):
     return player_damage
 
 def player_fireball(player):
-    player_damage = 6
+    player_damage = 8
     crit_roll = random.randint(1, 100)
 
     if crit_roll <= player['crit_chance']:
