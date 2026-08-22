@@ -1,4 +1,5 @@
 import random
+import os
 from player import create_player
 from player import player_attack
 from player import player_fireball
@@ -25,6 +26,12 @@ print("""
 player = create_player(input('Choose a name for your character: '))
 
 while player['current_hp'] > 0:
+
+    os.system('clear')
+
+    if xp % 3 == 0:
+        loot = gen_loot(loot_table, player)
+        print(f"{player['name']} found a {loot}!\n")
 
     enemy_defeated = False
 
@@ -64,11 +71,6 @@ while player['current_hp'] > 0:
             print(f"\n{enemy['name']} has been defeated!\n")
             score += 1
             xp += 1
-
-            if xp % 3 == 0:
-                loot = gen_loot(loot_table, player)
-                print(f"{player['name']} found a {loot}!\n")
-
             enemy_defeated = True
             break
 
@@ -79,6 +81,7 @@ while player['current_hp'] > 0:
             break
 
 if player['current_hp'] <= 0:
+        os.system('clear')
         print(f"\n{player['name']} has been defeated by {enemy['name']}! Game Over.")
         print(f"Final score: {score}")
         
