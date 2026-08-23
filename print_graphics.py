@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 gob_path = Path(__file__).parent / "assets" / "enemies" / "gob.txt"
 wiz_path = Path(__file__).parent / "assets" / "enemies" / "wizard.txt"
@@ -17,3 +18,5 @@ def print_enemy(enemy):
         with open(wiz_path, 'r', encoding='utf-8') as wiz:
             print(wiz.read())
 
+def clear_all():
+    os.system('cls' if os.name == 'nt' else 'clear')
