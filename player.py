@@ -9,6 +9,7 @@ def create_player(name):
         'name': name,
         'max_hp': 10,
         'current_hp': 10,
+        'armour': 0.00,
         'min_dmg': 2,
         'max_dmg': 7,
         'crit_chance': 10,
@@ -42,3 +43,7 @@ def player_fireball(player):
         player_damage = player_damage
 
     return player_damage
+
+def player_heal(player):
+    heal_amnt = random.randint(5, 7)
+    return heal_amnt
