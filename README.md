@@ -5,6 +5,24 @@
 
 This is the repository of my first Python project: PyCrawler. It is a simple terminal-based RPG modeled around a roguelike playstyle.
 
+## Installation
+PyCrawler is available as a package via pip. To install it, run:
+
+### macOS/Linux
+```text
+python3 -m pip install pycrawler-roguelite
+```
+
+### Windows
+```text
+python -m pip install pycrawler-roguelite
+```
+
+To play the game, run:
+```text
+pycrawler
+```
+
 ## Roadmap:
 - [x] Add the actual game play loop with functioning enemy spawn
 - [ ] Add working art
