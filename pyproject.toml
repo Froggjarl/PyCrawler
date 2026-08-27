@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pycrawler-roguelite"
+version = "0.1.0"
+description = "A terminal-based roguelike RPG made with"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+dependencies = []
+
+[project.scripts]
+pycrawler = "pycrawler.main:main"
