@@ -75,7 +75,7 @@ def main(): # Battle Logic
                     print(f"\n{player['name']} cast Fireball and dealt {player_damage} damage to {enemy['name']}! {enemy['name']} has {enemy['current_hp']} HP left.")
 
             if player_act == '3':
-                if player['mp'] < 3:
+                if player['mp'] < 1:
                     print("\nYou don't have enough mana to cast Heal!")
                     continue
                 else:
@@ -83,10 +83,14 @@ def main(): # Battle Logic
                         print("\nAlready at max HP")
                         continue
                     else:
-                        player['mp'] -= 3
-                        heal_amnt = player_heal(player)
-                        player['current_hp'] += heal_amnt
-                        print(f"\n{player['name']} healed {heal_amnt} HP")
+                        heal = min(9, player['max_hp'] - player['current_hp'])
+                        player['mp'] -= 1
+                        player['current_hp'] += heal
+                        #if player['current_hp'] > player['max_hp']:
+                            #player['current_hp'] = player['max_hp']
+                            #print(f"\n{player['name']} healed {player['current_hp'] - heal} HP")
+                        #else:
+                        print(f"\n{player['name']} healed {heal} HP")
 
             if enemy['current_hp'] <= 0:
                 clear_all()
@@ -107,4 +111,7 @@ def main(): # Battle Logic
         clear_all()
         print(f"\n{player['name']} has been defeated by a {enemy['name']}! Game Over.")
         print(f"Final score: {score}")
-        
+
+
+if __name__ == "__main__":
+    main()
