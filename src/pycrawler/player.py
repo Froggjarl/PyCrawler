@@ -15,7 +15,8 @@ def create_player(name):
         'crit_chance': 10,
         'crit_mult': 2,
         'mp': 3,
-        'max_mp': 3
+        'max_mp': 3,
+        'act_item': None
     }
     return player
 
