@@ -10,12 +10,12 @@ PyCrawler is available as a package via pip. To install it, run:
 
 ### macOS/Linux
 ```text
-python3 -m pip install pycrawler-roguelite
+python3 -m pip install pycrawler-roguelike
 ```
 
 ### Windows
 ```text
-python -m pip install pycrawler-roguelite
+python -m pip install pycrawler-roguelike
 ```
 
 To play the game, run:
