@@ -1,7 +1,7 @@
 import random
 
 
-loot_table = ['Mana Potion', 'Health Potion', 'Sturdy Sword', 'Sturdy Shield']
+loot_table = ['Mana Potion', 'Health Potion', 'Sturdy Sword', 'Sturdy Shield', 'Flashbang', 'Uber Bomb']
 
 def gen_loot(loot_table, player):
     loot = random.choice(loot_table)
@@ -25,5 +25,13 @@ def gen_loot(loot_table, player):
     elif loot == loot_table[3]:
         player['armour'] += 0.05
         desc = f"{player['name']}'s armour was increased"
+
+    elif loot == loot_table[4]:
+        player['act_item'] = 'Flashbang'
+        desc = "Maybe this could stun an enemy..."
+
+    elif loot == loot_table[5]:
+        player['act_item'] = 'Uber Bomb'
+        desc = "This looks powerful... maybe a little too powerful..."
 
     return loot, desc
