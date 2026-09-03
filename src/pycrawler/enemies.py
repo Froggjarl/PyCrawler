@@ -6,7 +6,7 @@ def create_ran_enemy(type):
 
     if type == 'slime':
         enemy = {
-            'name': 'Slime',
+            'name': '\033[1m'+'Slime'+'\033[0m',
             'max_hp': 7,
             'current_hp': 7,
             'min_dmg': 1,
@@ -16,7 +16,7 @@ def create_ran_enemy(type):
         }
     elif type == 'goblin':
         enemy = {
-            'name': 'Goblin',
+            'name': '\033[1m'+'Goblin'+'\033[0m',
             'max_hp': 10,
             'current_hp': 10,
             'min_dmg': 2,
@@ -26,7 +26,7 @@ def create_ran_enemy(type):
         }
     elif type == 'wizard':
         enemy = {
-            'name': 'Wizard',
+            'name': '\033[1m'+'Wizard'+'\033[0m',
             'max_hp': 8,
             'current_hp': 8,
             'min_dmg': 3,
