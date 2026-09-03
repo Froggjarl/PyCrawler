@@ -13,8 +13,11 @@ from .loot import loot_table
 from .print_graphics import clear_all
 
 def main(): # Battle Logic
+    uber_bomb = None
     xp = 0
     score = 0
+    enemy_skip = 0
+    player_skip = 0
 
     clear_all()
 
@@ -33,6 +36,12 @@ Version: 0.1.1
     clear_all()
 
     while player['current_hp'] > 0:
+
+        if uber_bomb != None:
+            print(uber_bomb)
+            uber_bomb = None
+        else:
+            pass
 
         if xp % 3 == 0 and xp > 0:
             loot, desc = gen_loot(loot_table, player)
@@ -53,11 +62,11 @@ Version: 0.1.1
             print(f'\nHP: {player['current_hp']}/{player['max_hp']}')
             print(f'MP: {'/' * player['mp']}')
             print(f'XP: {xp}')
-            print(f"What will {player['name']} do?\n[1] Attack\n[2] Fireball Spell\n[3] Heal Spell")
+            print(f"What will {player['name']} do?\n[1] Attack\n[2] Fireball Spell\n[3] Heal Spell\n[4] {player['act_item']}")
             player_act = input(': ')
 
-            if player_act not in ['1', '2', '3']:
-                print("\nYou can't do nothing!")
+            if player_act not in ['1', '2', '3', '4']:
+                print("\nInvalid Action.")
                 continue
 
             if player_act == '1':
@@ -93,6 +102,21 @@ Version: 0.1.1
                         #else:
                         print(f"\n{player['name']} healed {heal} HP")
 
+            if player_act == '4':
+                if player['act_item'] == 'Flashbang':
+                    enemy_skip = 2
+                    player['act_item'] = None
+                    print(f"\n{player['name']} used a Flashbang! {enemy['name']} is stunned.")
+
+                elif player['act_item'] == 'Uber Bomb':
+                    enemy['current_hp'] = 0
+                    player['current_hp'] -= 1
+                    player['act_item'] = None
+                    uber_bomb = f"{player['name']} used the Uber Bomb! {enemy['name']} was annihilated, but the bomb was pretty big, so {player['name']} was hurt a bit too.\n"
+                else:
+                    print("\nYou don't have an item to use!")
+                    continue
+                
             if enemy['current_hp'] <= 0:
                 clear_all()
                 print(f"\n{enemy['name']} has been defeated!\n")
@@ -101,6 +125,11 @@ Version: 0.1.1
                 enemy_defeated = True
                 break
 
+            if enemy_skip > 0:
+                enemy_skip -= 1
+                print(f"\n{enemy['name']}'s turn was skipped!")
+                continue
+            
             enemy_damage = round((enemy_attack(enemy)))
             player['current_hp'] -= round((enemy_damage - (enemy_damage * player['armour'])))
             print(f"\n{enemy['name']} dealt {enemy_damage} damage to {player['name']}!")
