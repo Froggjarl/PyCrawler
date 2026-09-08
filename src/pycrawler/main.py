@@ -1,5 +1,6 @@
 import random
 import os
+from importlib.metadata import version, metadata
 from .player import create_player
 from .player import player_attack
 from .player import player_fireball
@@ -13,6 +14,8 @@ from .loot import loot_table
 from .print_graphics import clear_all
 
 def main(): # Battle Logic
+    pkg_version = version('pycrawler-roguelike')
+
     uber_bomb = None
     xp = 0
     score = 0
@@ -21,14 +24,14 @@ def main(): # Battle Logic
 
     clear_all()
 
-    print("""
+    print(f"""
 ██████╗ ██╗   ██╗ ██████╗██████╗  █████╗ ██╗    ██╗██╗     ███████╗██████╗ 
 ██╔══██╗╚██╗ ██╔╝██╔════╝██╔══██╗██╔══██╗██║    ██║██║     ██╔════╝██╔══██╗
 ██████╔╝ ╚████╔╝ ██║     ██████╔╝███████║██║ █╗ ██║██║     █████╗  ██████╔╝
 ██╔═══╝   ╚██╔╝  ██║     ██╔══██╗██╔══██║██║███╗██║██║     ██╔══╝  ██╔══██╗
 ██║        ██║   ╚██████╗██║  ██║██║  ██║╚███╔███╔╝███████╗███████╗██║  ██║
 ╚═╝        ╚═╝    ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚══════╝╚══════╝╚═╝  ╚═╝
-Version: 0.1.1
+Version: {pkg_version}
     """)
 
     player = create_player(input('Choose a name for your character: '))
@@ -112,7 +115,7 @@ Version: 0.1.1
                     enemy['current_hp'] = 0
                     player['current_hp'] -= 1
                     player['act_item'] = None
-                    uber_bomb = f"{player['name']} used the Uber Bomb! {enemy['name']} was annihilated, but the bomb was pretty big, so {player['name']} was hurt a bit too.\n"
+                    uber_bomb = f"{player['name']} used the Uber Bomb! {enemy['name']} was annihilated, but it was pretty big, so {player['name']} was hurt a bit too.\n"
                 else:
                     print("\nYou don't have an item to use!")
                     continue
