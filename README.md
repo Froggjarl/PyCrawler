@@ -27,7 +27,7 @@ pycrawler
 - [x] Add the actual game play loop with functioning enemy spawn
 - [ ] Add working art
 - [x] Add some sort of loot system with basic upgrades
-- [ ] More advanced stats like speed and armour
+- [x] More advanced stats like speed and armour
 - [ ] Functionality for battles with multiple enemies
 - [ ] A system for attack types and the introduction of resistance and weakness to different attack types
 - [ ] A highscore system
