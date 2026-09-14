@@ -16,6 +16,7 @@ def create_player(name):
         'crit_mult': 2,
         'mp': 3,
         'max_mp': 3,
+        'speed': 1,
         'act_item': None
     }
     return player
