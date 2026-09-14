@@ -21,6 +21,7 @@ def main(): # Battle Logic
     score = 0
     enemy_skip = 0
     player_skip = 0
+    spd_counter = 0
 
     clear_all()
 
@@ -56,12 +57,19 @@ Version: {pkg_version}
         enemy_defeated = False
 
         enemy = create_ran_enemy(random.choice(enemy_types))
+        spd_counter = 0
 
         print(f"{player['name']} encountered a {enemy['name']}!")
 
         #print_enemy(enemy)
 
         while player['current_hp'] > 0 and enemy_defeated == False:
+            if enemy['speed'] > player['speed']:
+                print(f"\nThe {enemy['name']} is quick, so it attacked first!")
+                enemy_damage = round((enemy_attack(enemy)))
+                player['current_hp'] -= round((enemy_damage - (enemy_damage * player['armour'])))
+                print(f"\n{enemy['name']} dealt {enemy_damage} damage to {player['name']}!")
+
             print(f'\nHP: {player['current_hp']}/{player['max_hp']}')
             print(f'MP: {'/' * player['mp']}')
             print(f'XP: {xp}')
@@ -132,10 +140,24 @@ Version: {pkg_version}
                 enemy_skip -= 1
                 print(f"\n{enemy['name']}'s turn was skipped!")
                 continue
-            
-            enemy_damage = round((enemy_attack(enemy)))
-            player['current_hp'] -= round((enemy_damage - (enemy_damage * player['armour'])))
-            print(f"\n{enemy['name']} dealt {enemy_damage} damage to {player['name']}!")
+
+            if enemy['speed'] < player['speed']:
+                spd_counter += enemy['speed']
+                
+                if spd_counter >= player['speed']:
+                    enemy_damage = round((enemy_attack(enemy)))
+                    player['current_hp'] -= round((enemy_damage - (enemy_damage * player['armour'])))
+                    print(f"\n{enemy['name']} dealt {enemy_damage} damage to {player['name']}!")
+                    spd_counter -= player['speed']
+                else:
+                    print(f"{enemy['name']} is preparing an attack!")
+
+            else:
+                enemy_damage = round((enemy_attack(enemy)))
+                player['current_hp'] -= round((enemy_damage - (enemy_damage * player['armour'])))
+                print(f"\n{enemy['name']} dealt {enemy_damage} damage to {player['name']}!")
+                
+                
 
             if player['current_hp'] <= 0:
                 break
