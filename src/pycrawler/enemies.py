@@ -1,6 +1,7 @@
 import random
 
-enemy_types = ['slime', 'goblin', 'wizard', 'goober', 'troll', 'skeleton'] # Enemy list
+# remeber, easy crashes come from an unused enemy type, so make sure every enemy type actaully has a stat dictionary
+enemy_types = ['slime', 'goblin', 'wizard', 'goober', 'troll'] # Enemy list
 
 def create_ran_enemy(type):
 
